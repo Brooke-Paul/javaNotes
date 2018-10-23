@@ -1,4 +1,4 @@
-package com.java.learning;
+package com.learning;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
