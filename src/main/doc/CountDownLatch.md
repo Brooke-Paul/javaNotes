@@ -28,63 +28,57 @@ tags:
 ```java
 public class CountDownLatchDemo {
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws InterruptedException {
+        int nThreads = 5;
         CountDownLatch countDownLatchStart = new CountDownLatch(1);
-        CountDownLatch countDownLatchEnd = new CountDownLatch(5);
-        for (int i = 0; i < 5; i++) {
-            new Test(countDownLatchStart, countDownLatchEnd).start();
+        CountDownLatch countDownLatchEnd = new CountDownLatch(nThreads);
+        for (int i = 0; i < nThreads; i++) {
+            Thread thread = new Thread() {
+                @Override
+                public void run() {
+                    synchronized (countDownLatchEnd) {
+                        try {
+                            System.out.println(currentThread().getName() + " countDownLatchStart start...");
+                            super.run();
+                            countDownLatchStart.await();
+                            System.out.println(currentThread().getName() + " countDownLatchStart end...");
+                        } catch (Exception e) {
+
+                        } finally {
+                            countDownLatchEnd.countDown();
+                            System.out.println("current countDown count is..." + countDownLatchEnd.getCount());
+                        }
+                    }
+                }
+            };
+            thread.start();
         }
+        long startTime = System.currentTimeMillis();
+        countDownLatchStart.countDown();
 
-        try {
+        countDownLatchEnd.await();
+        long endTime = System.currentTimeMillis();
 
-            System.out.println("countDownLatchStart start...");
-            countDownLatchStart.countDown();
-            System.out.println("countDownLatchStart end...");
-            countDownLatchEnd.await();
-        } catch (InterruptedException e) {
-        }
-        System.out.println("countDownLatchEnd end...");
-    }
-}
-
-class Test extends Thread {
-
-    CountDownLatch countDownLatchStart;
-    CountDownLatch countDownLatchEnd;
-
-    public Test(CountDownLatch countDownLatchStart, CountDownLatch countDownLatchEnd) {
-        this.countDownLatchStart = countDownLatchStart;
-        this.countDownLatchEnd = countDownLatchEnd;
-    }
-
-    @Override
-    public void run() {
-        try {
-            countDownLatchStart.await();
-            System.out.println(Thread.currentThread().getName() + " thread start....");
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println(Thread.currentThread().getName() + " thread end....");
-        countDownLatchEnd.countDown();
+        System.out.println("countDownLatchEnd end...cost(" + (endTime - startTime) + ")");
     }
 }
 //运行结果：
-    countDownLatchStart start...
-    countDownLatchStart end...
-    Thread-2thread start....
-    Thread-1thread start....
-    Thread-0thread start....
-    Thread-4thread start....
-    Thread-3thread start....
-    Thread-2thread end....
-    Thread-4thread end....
-    Thread-1thread end....
-    Thread-0thread end....
-    Thread-3thread end....
-    countDownLatchEnd end...
+Thread-0 countDownLatchStart start...
+Thread-0 countDownLatchStart end...
+current countDown count is...4
+Thread-4 countDownLatchStart start...
+Thread-4 countDownLatchStart end...
+current countDown count is...3
+Thread-3 countDownLatchStart start...
+Thread-3 countDownLatchStart end...
+current countDown count is...2
+Thread-2 countDownLatchStart start...
+Thread-2 countDownLatchStart end...
+current countDown count is...1
+Thread-1 countDownLatchStart start...
+Thread-1 countDownLatchStart end...
+current countDown count is...0
+countDownLatchEnd end...cost(2)
 ```
 
 ### CountDownLatch的不足
