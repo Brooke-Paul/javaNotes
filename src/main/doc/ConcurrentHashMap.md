@@ -5,7 +5,7 @@ comments: true
 tags:
 - ConcurrentHashMap
 categories:  
-- java 
+- JAVA 集合  
 ---
 
  ## ConcurrentHashMap 简介

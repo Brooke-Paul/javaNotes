@@ -6,7 +6,7 @@ tags:
 - ArrayList
 - Vector
 categories:  
-- java  
+- JAVA 集合  
 ---
 
 # ArrayList 
