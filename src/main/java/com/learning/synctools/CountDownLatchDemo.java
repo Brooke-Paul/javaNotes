@@ -10,46 +10,37 @@ import java.util.concurrent.CountDownLatch;
  */
 public class CountDownLatchDemo {
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws InterruptedException {
+        int nThreads = 5;
         CountDownLatch countDownLatchStart = new CountDownLatch(1);
-        CountDownLatch countDownLatchEnd = new CountDownLatch(5);
-        for (int i = 0; i < 5; i++) {
-            new Test(countDownLatchStart, countDownLatchEnd).start();
+        CountDownLatch countDownLatchEnd = new CountDownLatch(nThreads);
+        for (int i = 0; i < nThreads; i++) {
+            Thread thread = new Thread() {
+                @Override
+                public void run() {
+                    synchronized (countDownLatchEnd) {
+                        try {
+                            System.out.println(currentThread().getName() + " countDownLatchStart start...");
+                            super.run();
+                            countDownLatchStart.await();
+                            System.out.println(currentThread().getName() + " countDownLatchStart end...");
+                        } catch (Exception e) {
+
+                        } finally {
+                            countDownLatchEnd.countDown();
+                            System.out.println("current countDown count is..." + countDownLatchEnd.getCount());
+                        }
+                    }
+                }
+            };
+            thread.start();
         }
+        long startTime = System.currentTimeMillis();
+        countDownLatchStart.countDown();
 
-        try {
+        countDownLatchEnd.await();
+        long endTime = System.currentTimeMillis();
 
-            System.out.println("countDownLatchStart start...");
-            countDownLatchStart.countDown();
-            System.out.println("countDownLatchStart end...");
-            countDownLatchEnd.await();
-        } catch (InterruptedException e) {
-        }
-        System.out.println("countDownLatchEnd end...");
-    }
-}
-
-class Test extends Thread {
-
-    CountDownLatch countDownLatchStart;
-    CountDownLatch countDownLatchEnd;
-
-    public Test(CountDownLatch countDownLatchStart, CountDownLatch countDownLatchEnd) {
-        this.countDownLatchStart = countDownLatchStart;
-        this.countDownLatchEnd = countDownLatchEnd;
-    }
-
-    @Override
-    public void run() {
-        try {
-            countDownLatchStart.await();
-            System.out.println(Thread.currentThread().getName() + " thread start....");
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println(Thread.currentThread().getName() + " thread end....");
-        countDownLatchEnd.countDown();
+        System.out.println("countDownLatchEnd end...cost(" + (endTime - startTime) + ")");
     }
 }
