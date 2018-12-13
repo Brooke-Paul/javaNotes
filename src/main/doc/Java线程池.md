@@ -1,14 +1,21 @@
-package com.learning.executor;
+---
+title: Java线程池的四种使用方式
+date: 2018-12-14
+comments: true 
+tags:
+- 线程池
+categories:  
+- Java并发  
+---
+## Executor框架
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+`Executor` 中常用的四种静态方法：   
+        `1.newSingleThreadExecutor`是一个单线程的Executor，使用唯一的线程来执行任务。   
+        `2.newFixedThreadPool`是一个固定长度的线程池，每当提交任务时就会创建线程，直到线程池最大数量，线程池的规模不再变化。   
+        `3.newCachedThreadPool`是一个可缓存的线程池，线程池的规模不存在任何限制。 如果当前线程池的资源有空闲，那么将回收空闲资源。如果资源增加时需要线程，则向线程池添加线程。   
+        `4.newScheduledThreadPool`是一个固定长度的线程池，并且以延迟的方式来执行任务。   
 
-/**
- * @Author xuet
- * @Description Executors 的四种方法实现
- * @Date 12/12/18
- * @Version 1.0
- */
+```java
 public class ExecutorTask {
     public static void main(String[] args) {
 
@@ -46,3 +53,5 @@ public class ExecutorTask {
         });
     }
 }
+
+```
