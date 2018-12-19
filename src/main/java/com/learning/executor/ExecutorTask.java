@@ -17,7 +17,7 @@ public class ExecutorTask {
         executorService1.execute(new Runnable() {
             @Override
             public void run() {
-                System.out.println("newSingleThreadExecutor is done");
+                System.out.println("singleThreadExecutor is done");
             }
         });
 
@@ -27,7 +27,7 @@ public class ExecutorTask {
         executorService2.execute(new Runnable() {
             @Override
             public void run() {
-                System.out.println("newFixedThreadPool is done");
+                System.out.println("fixedThreadPool is done");
             }
         });
         executorService2.shutdown();
@@ -36,7 +36,7 @@ public class ExecutorTask {
         executorService3.execute(new Runnable() {
             @Override
             public void run() {
-                System.out.println("newCachedThreadPool is done");
+                System.out.println("cachedThreadPool is done");
             }
         });
         executorService3.shutdown();
@@ -45,7 +45,7 @@ public class ExecutorTask {
         executorService4.execute(new Runnable() {
             @Override
             public void run() {
-                System.out.println("newScheduledThreadPool is done");
+                System.out.println("scheduledThreadPool is done");
             }
         });
         executorService4.shutdown();
