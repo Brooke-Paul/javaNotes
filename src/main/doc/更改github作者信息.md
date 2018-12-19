@@ -3,10 +3,9 @@ title: github更改作者的提交信息
 date: 2018-12-20 07:01:34 
 comments: true  
 categories:  
-- git filter-branch --env-filter
-- collection
-tags:
 - git  
+tags:
+- git filter-branch --env-filter
 ---
 
 ## 问题发现
