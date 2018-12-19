@@ -46,3 +46,6 @@ fi
 git push --force --tags origin 'refs/heads/*'
 
 ok，至此作者信息修改完毕
+
+
+此时本地仓库提交代码会失败，首先执行 更新： git pull origin master --allow-unrelated-histories
