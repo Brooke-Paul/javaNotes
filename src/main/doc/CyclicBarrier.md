@@ -1,14 +1,14 @@
 ---
-title: java同步工具之CyclicBarrier
+title: Java同步工具之CyclicBarrier
 date: 2018-12-10
 categories:  
-- java 并发  
+- Java并发
 tags:
 - CyclicBarrier 
 ---
 
 
-## java并发之同步工具 CyclicBarrier  
+## Java并发之同步工具 CyclicBarrier  
 
 ### CyclicBarrier循环屏障
 `CyclicBarrier`用于让一组线程运行并互相等待，直到共同到达一个公共屏障点 (`common barrier point`，又被称为同步点)，被屏障拦截的所有线程就会继续执行。

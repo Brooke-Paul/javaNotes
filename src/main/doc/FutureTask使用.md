@@ -6,7 +6,7 @@ tags:
 - FutureTask  
 - ConcurrentHashMap 
 categories:  
-- java 并发  
+- Java并发
 
 ---
 ## FutureTask介绍

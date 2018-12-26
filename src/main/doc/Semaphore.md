@@ -1,13 +1,13 @@
 ---
-title: java同步工具之Semaphore
+title: Java同步工具之Semaphore
 date: 2018-12-07
 categories:  
-- java 并发  
+- Java并发
 tags:
 - Semaphore 
 ---
 
-## java并发之同步工具 Semaphore  
+## Java并发之同步工具 Semaphore  
 
 ### Semaphore信号量
 `Semaphore` 用于控制线程并发数，`Semaphore` 可以控制同时访问资源的线程个数，实现一个文件允许访问的并发数。
