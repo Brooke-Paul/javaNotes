@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @Author xuet
- * @Description ReentrantLock 实现synchronized的高级功能
+ * @Description ReentrantLock 的使用
  * @Date 1/6/19
  * @Version 1.0
  */
@@ -28,6 +28,5 @@ public class ReentrantLockDemo {
             //操作完成切记释放锁的信息
             lock.unlock();
         }
-
     }
 }
