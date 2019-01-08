@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @Author xuet
- * @Description 使用显示条件变量实现有界缓存
+ * @Description 使用显示条件变量实现有界缓存，队列非空时提醒 唤醒 notFull 去执行take， 队列未满时提醒 唤醒notEmpty 去执行put
  * @Date 1/9/19
  * @Version 1.0
  */
