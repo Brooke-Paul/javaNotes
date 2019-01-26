@@ -46,4 +46,9 @@ public class Person implements Serializable {
                 ", age=" + age +
                 '}';
     }
+    public Person() {
+    }
+    public Person(String name) {
+        this.name = name;
+    }
 }

@@ -14,7 +14,7 @@ public class ThreadLocalDemo {
     private static final ThreadLocal threadLocal = new ThreadLocal();
 
     public static void main(String[] args) {
-        Person person = new Person();
+        Person person = new Person("zhangshan");
         person.setName(Thread.currentThread().getName());
         threadLocal.set(person);
 
@@ -22,7 +22,7 @@ public class ThreadLocalDemo {
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    Person ps = new Person();
+                    Person ps = new Person("zhangshan");
                     ps.setName(Thread.currentThread().getName());
                     threadLocal.set(ps);
 
