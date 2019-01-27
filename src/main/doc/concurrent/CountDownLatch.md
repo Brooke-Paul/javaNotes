@@ -1,11 +1,13 @@
 ---
 title: Java同步工具之CountDownLatch
 date: 2018-12-07
+comments: true 
+tags:
+- CountDownLatch
 categories:  
 - Java并发
-tags:
-- CountDownLatch 
 ---
+
 ## Java并发之同步工具 CountDownLatch  
 ### CountDownLatch 概念
 `CountDownLatch` 是一种灵活的闭锁实现，它可以使一个或多个线程等待一组事件发生。闭锁状态包括一个计数器，该计数器初始化为一个正整数，表示需要等待的事件数量。
