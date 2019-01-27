@@ -8,6 +8,11 @@ categories:
 - Java并发
 ---
 
+## Synchronized
+`Synchronized`关键字是最基本的互斥同步，经过编译之后，会在同步块的前后形成`monitorenter`和`monitorexit`两个字节码指令，在和执行`monitorenter`
+指令时，首先会尝试获取对象的锁，把锁的计数器加一。相应的，在执行`monitorexit`指令时会将计数器的值减一，当计数器的值为零时锁会被释放。如果获取对象锁失败，那么当前线程就会阻塞等待，直到对象锁被另一个线程释放为止。
+
+
 ##  Synchronized与ReadWriteLock相同点
 1.在多线程并发编程中都能实现同步，当某个方法被`Synchronized`修饰时，其它的线程无法访问当前方法，只有阻塞等待此方法同步完成后获取锁。
 2.`ReadWriteLock`为读写锁，适用情况为读多写少的场景，和`Synchronized`一样可以锁住某个方法，但是得手动释放锁。
