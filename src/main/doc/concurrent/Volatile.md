@@ -1,11 +1,13 @@
 ---
 title: Volatile关键字解析
 date: 2018-11-29 
-categories:  
-- Java
+comments: true 
 tags:
 - Volatile
+categories:  
+- Java并发  
 ---
+
 ## 前言
  在介绍`Volatile`之前，先简单了解一下`java`内存模型。在`java`内存模型中规定，简称为`JMM`。
 ## 主内存和工作内存

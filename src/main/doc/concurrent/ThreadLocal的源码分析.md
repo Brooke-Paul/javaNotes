@@ -1,10 +1,11 @@
 ---
 title: ThreadLocal的源码分析
 date: 2019-01-10
-categories:  
-- Java并发
+comments: true 
 tags:
-- ThreadLocal 
+- ThreadLocal
+categories:  
+- Java并发  
 ---
 
 ## ThreadLocal的介绍

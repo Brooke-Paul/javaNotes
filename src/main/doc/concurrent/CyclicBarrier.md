@@ -1,12 +1,12 @@
 ---
 title: Java同步工具之CyclicBarrier
 date: 2018-12-10
+comments: true 
+tags:
+- CyclicBarrier
 categories:  
 - Java并发
-tags:
-- CyclicBarrier 
 ---
-
 
 ## Java并发之同步工具 CyclicBarrier  
 

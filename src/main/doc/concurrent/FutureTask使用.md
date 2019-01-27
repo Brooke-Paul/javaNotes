@@ -1,14 +1,14 @@
 ---
 title: FutureTask 配合 ConcurrentHashMap 使用
-date: 2018-12-11 01:01:34 
+date: 2018-12-11
 comments: true 
 tags:
 - FutureTask  
-- ConcurrentHashMap 
+- ConcurrentHashMap
 categories:  
 - Java并发
-
 ---
+
 ## FutureTask介绍
 `FutureTask`可用于异步获取执行结果或取消执行任务的场景。通过传入`Runnable`或者`Callable`的任务给`FutureTask`，直接调用其`run`方法或者放入线程池执行，之后可以在外部通过`FutureTask`的`get`方法异步获取执行结果。   
 

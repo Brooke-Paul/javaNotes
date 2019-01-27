@@ -1,10 +1,11 @@
 ---
 title: Java同步工具之Semaphore
 date: 2018-12-07
-categories:  
-- Java并发
+comments: true 
 tags:
-- Semaphore 
+- Semaphore
+categories:  
+- Java并发  
 ---
 
 ## Java并发之同步工具 Semaphore  
