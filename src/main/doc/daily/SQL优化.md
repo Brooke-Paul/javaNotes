@@ -2,9 +2,7 @@
 
 ## 针对自身所缺乏的sql知识整理
 
-1. 首先介绍一下`explain`,`explain`关键词用于展示某条`sql`语句是否展示了索引以及确认该`sql`语句是否必须进行优化。       
-
-`explain` 使用实例：      
+1. 首先介绍一下`explain`,`explain`关键词用于展示某条`sql`语句是否展示了索引以及确认该`sql`语句是否必须进行优化。        `explain` 使用实例：      
 ![](../../img/CD2AD4DB-EED9-4391-9DF7-C5A951CEDBFF.jpg)
 关于`explain`的解释：   
 - `table`表示查询的表。   
