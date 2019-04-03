@@ -23,7 +23,7 @@ public class SecKillTest {
      */
     static final String userNum = "userNum";
     /**
-     *
+     * 设置iphonex 20部，抢完为止
      */
     static final String key = "iphonex";
 
@@ -37,13 +37,14 @@ public class SecKillTest {
                 new LinkedBlockingQueue<Runnable>(), threadFactory);
 
         final Jedis jedis = new Jedis("127.0.0.1", 6379);
-        jedis.set(key, "0");
-        jedis.set(userNum, "0");
+        jedis.set(key, "20");
+        jedis.set(userNum, "20");
         jedis.del("successUser");
         jedis.del("failUser");
         jedis.close();
         for (int i = 0; i < threadNum; i++) {
-            executor.execute(new SecKill("zhangshan" + i));
+            //模拟10000个人员同时请求
+            executor.execute(new SecKill("张珊" + i));
         }
         executor.shutdown();
     }
