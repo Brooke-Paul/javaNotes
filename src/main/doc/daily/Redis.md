@@ -4,9 +4,25 @@
 
 `Redis`常用数据类型结构：   
 - `String` 字符串类型
-- `List`   列表类型
-- `Hash`   key-value类型
-- `Set`    集合
+   
+   简单的`key-value`类型，`value` 可以是字符串，也可以是数字。 `key`的最大长度为512M，`value`的最大长度为512M   
+   常用命令有 `set`， `get`， `incr`，`incrby`，`decr`，`decrby`等。         
+   `String`类型是最常用的一种数据类型，采用 `key-value`存储。  
+   使用场景： 粉丝计数，关注计数。
+- `List` 列表类型
+    
+   `key`的最大长度为512M， list的元素个数最多2^32-1个。   
+   常用命令有`lpush`， `rpush`， `lpop`， `rpop`， `lrange`， `blpop`， `brpop`等。   
+   使用场景：我的粉丝列表，关注列表等。   
+   当然`List` 结构还可以用作队列（先进先出 `lpush` - `rpop` 或者 `rpush` - `lpop`)，以及栈（先进后出 `lpush` - `lpop` 或者 `rpush` - `rpop`)。 
+
+- `Hash` 类型（类似`HashMap`)
+  
+  `key`的最大长度为512M， list的元素个数最多2^32-1个。      
+   常用命令有 `hget`,`hset`,`hgetall`， `hmset`， `hmget`。   
+   使用场景： 用户信息更改部分信息，比如姓名，生日字段。  
+   
+- `Set` 集合
 - `Sorted Set` 有序集合
 
 
