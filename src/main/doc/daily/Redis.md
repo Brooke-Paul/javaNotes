@@ -1,5 +1,16 @@
 # Redis 实现秒杀功能
 
+## 首先了解一下Redis的基本数据结构
+
+`Redis`常用数据类型结构：   
+- `String` 字符串类型
+- `List`   列表类型
+- `Hash`   key-value类型
+- `Set`    集合
+- `Sorted Set` 有序集合
+
+
+
 
 ## 场景一： 10000个用户同时在线秒杀20部iponeX， 超出秒杀的数量全部失败。
 
