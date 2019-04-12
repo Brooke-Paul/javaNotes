@@ -11,7 +11,7 @@
    使用场景： 粉丝计数，关注计数。
 - `List` 列表类型
     
-   `key`的最大长度为512M， list的元素个数最多2^32-1个。   
+  `key`的最大长度为512M， list的元素个数最多2^32-1个。   
    常用命令有`lpush`， `rpush`， `lpop`， `rpop`， `lrange`， `blpop`， `brpop`等。   
    使用场景：我的粉丝列表，关注列表等。   
    当然`List` 结构还可以用作队列（先进先出 `lpush` - `rpop` 或者 `rpush` - `lpop`)，以及栈（先进后出 `lpush` - `lpop` 或者 `rpush` - `rpop`)。 
@@ -23,6 +23,9 @@
    使用场景： 用户信息更改部分信息，比如姓名，生日字段。  
    
 - `Set` 集合
+   
+  `key`的最大长度为512M， list的元素个数最多2^32-1个。      
+   常用命令有 `sadd`, `spop`, `smembers`
 - `Sorted Set` 有序集合
 
 
