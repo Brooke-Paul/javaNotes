@@ -25,8 +25,12 @@
 - `Set` 集合
    
   `key`的最大长度为512M， list的元素个数最多2^32-1个。      
-   常用命令有 `sadd`, `spop`, `smembers`
+   常用命令有 `sadd`, `spop`, `smembers`, `srem`
 - `Sorted Set` 有序集合
+
+  `key`的最大长度为512M， list的元素个数最多2^32-1个。   
+   常用命令有 `zadd`, `zrange`, `zrevrange`, `zrem`
+   
 
 
 
