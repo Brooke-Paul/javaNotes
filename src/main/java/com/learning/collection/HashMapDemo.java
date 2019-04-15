@@ -15,12 +15,13 @@ public class HashMapDemo {
 
     public static void main(String[] args) {
 
+        /* hash equal start */
         map.put("!", "2");
-
-
         foreachMap();
         map.put("A", "2");
         foreachMap();
+        /* hash equal end */
+
         putKeyNull();
         foreachMap();
 
@@ -33,8 +34,6 @@ public class HashMapDemo {
         putKeyResize();
 
     }
-
-
 
 
     /**
@@ -70,9 +69,12 @@ public class HashMapDemo {
         map.put("7", "1");
         map.put("8", "1");
         map.put("9", "1");
+        map.put("10", "1");
+        map.put("11", "1");
+        map.put("12", "1");
+        map.put("13", "1");
         System.out.println();
     }
-
 
 
     static final int hash(Object key) {
