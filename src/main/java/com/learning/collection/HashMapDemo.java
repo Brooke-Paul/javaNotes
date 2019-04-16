@@ -27,8 +27,8 @@ public class HashMapDemo {
 
         putValueNull();
         foreachMap();
-        putKeyValueNull();
-        foreachMap();
+//        putKeyValueNull();
+//        foreachMap();
 
 
         putKeyResize();

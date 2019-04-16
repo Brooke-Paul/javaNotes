@@ -16,6 +16,32 @@ comments: true
 `HashMap` 里面是一个数组，然后数组中每个元素是一个单项链表。  
 图中`Entry` 包含四个属性，`key`，`value`，`hash` 值和用于单项链表的`next`。  
 
+`key` 值允许为空， `value`允许为空。   
+
+```java
+ /**
+     * 允许空的key值
+     */
+    public static void putKeyNull() {
+        map.put(null, "1");
+        System.out.println();
+    }
+
+    /**
+     * 允许空的value值
+     */
+    public static void putValueNull() {
+        map.put("1", null);
+        System.out.println();
+    }
+    
+    执行结果：
+    entrySet====key====null====value====1====hash====0
+    entrySet====key====1====value====null====hash====49
+```
+
+
+
 重要参数`capacity` 和 `loadFactor`。      
 `capacity` 当前数组容量，始终保持 2^n，默认值为 `1<<4 `，最大为 `1<<16`, 可以扩容，扩容后数组大小为当前的 2 倍。  
 `loadFactor` 负载因子，默认为 0.75。  
