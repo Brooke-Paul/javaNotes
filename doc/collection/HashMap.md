@@ -1,14 +1,4 @@
----
-title: HashMap的源码分析
-date: 2018-09-13 07:01:34 
-categories:  
-- JAVA 集合  
-tags:
-- HashMap 
-comments: true 
----
-
- ## HashMap 简介
+## HashMap 简介
  
 `HashMap` 是一个散列表， 它存储的内容是键值对`（key -  value）`映射。   
 `HashMap` 继承于 `AbstractMap`， 实现了`Map`， `Cloneable`，`Serializable` 接口。  

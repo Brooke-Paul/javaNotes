@@ -1,14 +1,4 @@
----
-title: LinkedHashMap的源码分析
-date: 2018-09-15 07:01:34  
-comments: true 
-categories:  
-- JAVA 集合   
-tags:
-- LinkedHashMap  
----
-
- ## LinkedHashMap 简介
+## LinkedHashMap 简介
  `LinkedHashMap` 继承了 `HashMap`, 实现了`map`接口。    
  所以 `LinkedHashMap` 包含了 `HashMap` 的所有功能， 它是一个关联数组，线程不安全，并且`key`值，`value`值允许为空。    
 `LinkedHashMap` 与 `HashMap` 不同之处是它支持写入顺序排序，访问顺序排序。  

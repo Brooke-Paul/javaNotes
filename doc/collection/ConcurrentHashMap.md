@@ -1,14 +1,4 @@
----
-title: ConcurrentHashMap的源码分析
-date: 2018-09-12 07:01:34 
-comments: true  
-tags:
-- ConcurrentHashMap
-categories:  
-- JAVA 集合  
----
-
- ## ConcurrentHashMap 简介
+## ConcurrentHashMap 简介
  正是由于`HashMap` 不是线程安全的，所以大佬给我们带来了 线程安全的`ConcurrentHashMap`。  
  本文的分析的源码是JDK8的版本，与JDK7的版本有很大的差异，java7中 `ConcurrentHashMap` 由 `Segment` 数组、`HashEntry` 组成，和 `HashMap` 一样，仍然是数组加链表。
  它摒弃了`Segment`（锁段）的概念，而是启用了一种全新的方式实现,利用`CAS`算法。它沿用了与它同时期的`HashMap`版本的思想，底层依然由“数组”+链表+红黑树的方式思想，

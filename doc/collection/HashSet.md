@@ -1,12 +1,3 @@
----
-title: HashSet的源码分析
-date: 2018-09-14 07:01:34 
-comments: true  
-categories:  
-- JAVA 集合  
-tags:
-- HashSet  
----
 ## HashSet 简介
 `HashSet` 是一个没有重复元素的集合。  
 它是由 `HashMap` 实现的， 无序且允许空值。  

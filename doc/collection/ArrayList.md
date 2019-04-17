@@ -1,14 +1,3 @@
----
-title: ArrayList/Vector的源码分析  
-date: 2018-09-11 17:01:34 
-comments: true 
-tags:
-- ArrayList
-- Vector
-categories:  
-- JAVA 集合  
----
-
 # ArrayList 
 `ArrayList` 是动态数组，其实就是`Array`的复杂版本，它提供了动态增加和减少元素的功能，实现了`List`，`RandomAccess`, `Collection`接口，`ArrayList`不是线程安全的，建议在单线程中使用`ArrayList`。
 
