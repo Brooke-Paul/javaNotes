@@ -4,8 +4,8 @@
 ## redis相关
 [Redis基本类型](doc/daily/Redis.md)
 
-## Java 集合相关
-如下图：
+## Java 集合相关（如下图）
+
 ![](img/collection.jpg)
 
 `Java` 集合框架主要包括两种类型的容器   
