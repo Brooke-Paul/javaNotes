@@ -29,5 +29,7 @@
 - [LinkedList的源码分析](doc/collection/LinkedList.md)
 
 
+## 多线程相关
 
-
+### 线程的六种状态
+![](img/thread.jpg)
