@@ -1,8 +1,8 @@
 ## mysql相关
-[SQL优化方式](doc/daily/SQL优化.md)
+- [SQL优化方式](doc/daily/SQL优化.md)
 
 ## redis相关
-[Redis基本类型](doc/daily/Redis.md)
+- [Redis基本类型](doc/daily/Redis.md)
 
 ## Java 集合相关（如下图）
 
@@ -33,3 +33,6 @@
 
 ### 线程的六种状态
 ![](img/thread.jpg)
+
+### 线程的使用
+- [线程与进程详解](doc/concurrent/线程与进程详解.md)
