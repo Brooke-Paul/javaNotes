@@ -31,8 +31,5 @@
 
 ## 多线程相关
 
-### 线程的六种状态
-![](img/thread.jpg)
-
-### 线程的使用
+- [Thread六种状态](doc/concurrent/Thread状态.md)
 - [线程与进程详解](doc/concurrent/线程与进程详解.md)
