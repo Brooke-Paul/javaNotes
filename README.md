@@ -34,3 +34,4 @@
 - [Thread六种状态](doc/concurrent/Thread状态.md)
 - [线程与进程详解](doc/concurrent/线程与进程详解.md)
 - [线程池大小设置](doc/concurrent/线程池大小设置.md)
+- [Synchronized详解](doc/concurrent/Synchronized.md)
