@@ -22,13 +22,14 @@ categories:
 ## Volatile 原理
    `Java`语言提供了一种稍弱的同步机制，即`volatile`变量，确保变量的更新操作通知到其他线程。当线程变量被`volatile`修饰后，编译器会自动识别该变量属于线程共享，因此在读取`volatile`修饰的变量时总是读取最新的值。
    
-   在访问`volatile`变量时不会执行加锁操作，因此也就不会使执行线程阻塞，因此`volatile`变量是一种比`sychronized`关键字更轻量级的同步机制。
+   在访问`volatile`变量时不会执行加锁操作，因此也就不会使执行线程阻塞，因此`volatile`变量是一种比`sychronized`关键字更轻量级的同步机制。   
+   加锁机制即可以确保原子性又可以确保可见性，而`volatile` 只能确保可见性。   
 
 ### 内存可见性
    变量在被`volatile`修饰后更改变量的值会立即被写回主存，同时会使其他线程工作内存的旧值失效，新值对于其他线程是可见的，因为`volatile`修饰的变量在每个线程中使用前都会去主内存中获取最新的值。
    虽然`volatile`修饰的值每次都会被线程获取到，但是并不能保证线程并发的安全性。因为忽略了原子性，`volatile`在执行时并不能保证原子性，对变量的操作可能就是很简单的 `i+=1`,但是底层需要多条字节码操作才能完成，在并发情况并不能保证原子性。
 ### 禁止指令重排序优化
-   指令重排序是指CPU在正确处理指令依赖(数据依赖)并且保障程序执行得到正确结果的情况下，调整代码的执行顺序，允许将多条指令不按照程序规定顺序分开发送给各相应电路单元处理。需要注意的是指令重排序不会影响到代码在单线程环境下的执行，会影响到多线程并发情况下执行的正确性。
+   指令重排序是指CPU在正确处理指令依赖(数据依赖)并且保障程序执行得到正确结果的情况下，调整代码的执行顺序，允许将多条指令不按照程序规定顺序分开发送给各相应电路单元处理。需要注意的是指令重排序不会影响到代码在单线程环境下的执行，只会影响到多线程并发情况下执行的正确性。
 
 ### 使用条件
 如果让`volatile`保证原子性，必须符合以下两条规则：
@@ -42,10 +43,33 @@ categories:
 2). 管程锁定规则：一个`unlock`释放锁的操作先行发生于后面对同一个锁的`lock`加锁操作。   
 2). `volatile`变量规则：对一个`volatile`变量的写操作先行发生于后面对这个变量的读操作。   
 2). 线程启动规则：`Thread`的`start()`方法先发生于对这个线程的所有操作。   
-5). 线程终止规则：现成的所有操作都先行发生于对此线程的终止操作。   
+5). 线程终止规则：线程的所有操作都先行发生于对此线程的终止操作。   
 6). 线程中断规则：对线程`interrupt()`方法的调用先行发生于被中断线程的代码检测到中断事件的发生。   
 7). 对象终结规则：一个对象的初始化完成先行发生于它的`finalize()` 方法。   
 8). 传递性：如果A操作先行发生于B操作，操作B先行发生于C操作，那么可以得出A操作先发生于C操作。
 
+```java
+    //volatile 使用
+    volatile boolean ready = false;
+    @Override
+    public void run() {
+        System.out.println("Thread start");
+        while (ready) {
+            System.out.println("Thread is running " + ready);
+        }
+        System.out.println("Thread end");
+    }
 
+    public void setRead(boolean ready) {
+        this.ready = ready;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        NoVisibilityDemo noVisibilityDemo = new NoVisibilityDemo();
+        noVisibilityDemo.start();
+        Thread.sleep(2000);
+        noVisibilityDemo.setRead(true);
+        System.out.println("ready is " + noVisibilityDemo.ready);
+    }
+```
 
