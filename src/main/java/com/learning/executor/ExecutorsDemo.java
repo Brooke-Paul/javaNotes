@@ -19,8 +19,8 @@ import java.util.concurrent.Executors;
 public class ExecutorsDemo {
     public static void main(String[] args) {
         try {
-            test1();
-            test2();
+            singleThreadPool();
+            multipleThreadPool();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -28,7 +28,7 @@ public class ExecutorsDemo {
     }
 
 
-    public static void test1() throws InterruptedException {
+    public static void singleThreadPool() throws InterruptedException {
         CountDownLatch countDownLatch = new CountDownLatch(150);
 
         long startTime = System.currentTimeMillis();
@@ -46,7 +46,7 @@ public class ExecutorsDemo {
         System.out.println("test1执行时间===" + (System.currentTimeMillis() - startTime) + " ms");
     }
 
-    public static void test2() throws InterruptedException {
+    public static void multipleThreadPool() throws InterruptedException {
         CountDownLatch countDownLatch = new CountDownLatch(150);
         long startTime = System.currentTimeMillis();
         for (int j = 0; j < 3; j++) {
