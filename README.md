@@ -39,3 +39,4 @@
 - [simpleSpinLock实现](doc/concurrent/简单自旋锁的实现.md)
 - [显示锁的使用](doc/concurrent/显示锁的使用.md)
 - [线程的优化](doc/concurrent/线程的优化.md)
+- [同步工具之CountDownLatch](doc/concurrent/CountDownLatch.md)
