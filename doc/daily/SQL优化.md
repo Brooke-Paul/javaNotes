@@ -20,9 +20,36 @@
 ![](../../img/index.jpg)
 
 
-2.查询时使用联合索引的一个字段能否使用到联合索引，举一个例子。   
-`EXPLAIN SELECT city.city_name, city.description FROM city  where city_name = "沈阳"`      
-当且仅当联合索引`index（city_name_description)`存在并且使用 `city_name`查询时会用到索引（即匹配索引最左侧原则)，否则无法使用索引。
+2.索引的创建与使用。   
+
+- 单列索引   
+  
+  节点中只有一个关键字，如在表 `city` 的 `name` 字段上加索引。
+   
+  ```java
+     ALTER TABLE city ADD INDEX idx_city(`city_name`)
+  ```
+  
+- 联合索引      
+  
+  节点中有多个关键字,如在表 `city` 的 `city_name`,`description` 两个字段上加索引。
+  ```java
+     CREATE INDEX idx_cityname_description ON `city`(`city_name`, `description`);
+  ```
+
+单列索引是特殊的联合索引
+
+`EXPLAIN SELECT city.city_name, city.description FROM city  where city_name = "沈阳"`         
+当且仅当联合索引`index（city_name_description)`存在并且使用 `city_name`查询时会用到索引（即匹配索引最左侧原则)，否则无法使用索引。    
+
+- 联合索引列使用原则
+
+   1.经常用的列优先 【最左匹配原则】
+
+   2.选择性（离散度）高的列优先【离散度高原则】
+
+   3.宽度小的列优先【最少空间原则】
+
 
 3.数据库锁可以分为行锁，页锁，以及表锁。   
 1). 行锁粒度最细，所以加锁慢，开销大，锁的性能最好,会出现死锁。   
