@@ -1,8 +1,5 @@
 package com.learning.thread;
 
-
-import com.learning.entity.Person;
-
 public class NoVisibilityDemo extends Thread {
     volatile boolean ready = false;
 
