@@ -16,7 +16,7 @@ public class ThreadInterrupted {
         Thread thread = new Thread(interrupted);
         try {
             thread.start();
-            Thread.sleep(10);
+            Thread.sleep(1000);
             thread.interrupt();
         } catch (InterruptedException e) {
             System.out.println("thread state is update");
@@ -30,9 +30,23 @@ class Interrupted implements Runnable {
     @Override
     public void run() {
         //静态interrupted() 方法 或者 Thread.currentThread().isInterrupted() 判断状态
-        while (!interrupted()) {
-            System.out.println(Thread.currentThread().getName() + "===线程被中断");
+        for (; ; ) {
+            while (!interrupted()) {
+                try {
+                    Thread.sleep(10000);
+                } catch (InterruptedException e) {
+                    System.out.println("子线程 InterruptedException" + e);
+                    Boolean c = Thread.interrupted();
+                    Thread.currentThread().interrupt();
+                    Boolean d = Thread.interrupted();
+                    System.out.println("c=" + c);
+                    System.out.println("d=" + d);
+
+                }
+                System.out.println(Thread.currentThread().getName() + "===线程被中断");
+            }
         }
+
     }
 }
 
