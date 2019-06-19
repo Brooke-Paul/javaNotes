@@ -1,5 +1,6 @@
 ## mysql相关
 - [SQL优化方式](doc/daily/SQL优化.md)
+- [MYSQL字符集异常处理](doc/daily/MySQL字符集存储.md)
 
 ## redis相关
 - [Redis基本类型](doc/daily/Redis.md)
