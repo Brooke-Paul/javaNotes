@@ -12,10 +12,9 @@ public class Sort {
     public static void main(String[] args) {
         int[] array = {0, 4, 5, 3, 9, 6, 2, 1};
 
-
 //        bubblingSort(array);
-        selectSort(array);
-
+//        selectSort(array);
+        shellSort(array);
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }
@@ -64,4 +63,38 @@ public class Sort {
             array[min] = temp;
         }
     }
+
+
+    /**
+     * 希尔排序升序排列
+     * @param array
+     */
+    public static void shellSort(int[] array) {
+        int length = array.length;
+        int d = length;
+        d = d / 2;
+        while (d > 0) {
+            for (int i = 0; i < d; i++) {
+                for (int j = i + d; j < length; j = j + d) {
+                    int temp = array[j];
+                    int m;
+                    for (m = j - d; m >= 0 && array[m] > temp; m = m - d) {
+                        array[m + d] = array[m];
+                        print(array);
+                    }
+                    array[m + d] = temp;
+                    print(array);
+                }
+            }
+            d = d / 2;
+        }
+
+    }
+    private static void print(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
+    }
+
 }
