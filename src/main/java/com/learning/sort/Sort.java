@@ -14,7 +14,8 @@ public class Sort {
 
 //        bubblingSort(array);
 //        selectSort(array);
-        shellSort(array);
+        insertSort(array);
+//        shellSort(array);
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }
@@ -51,9 +52,10 @@ public class Sort {
      * @param array
      */
     public static void selectSort(int[] array) {
-        for (int i = 0; i < array.length; i++) {
+        int length = array.length;
+        for (int i = 0; i < length; i++) {
             int min = i;
-            for (int j = i + 1; j < array.length; j++) {
+            for (int j = i + 1; j < length; j++) {
                 if (array[j] < array[min]) {
                     min = j;
                 }
@@ -64,9 +66,28 @@ public class Sort {
         }
     }
 
+    /**
+     * 插入排序升序排列
+     *
+     * @param array
+     */
+    public static void insertSort(int[] array) {
+        int length = array.length;
+        for (int i = 1; i < length; i++) {
+            int temp = array[i];
+            for (int j = i - 1; j >= 0; j--) {
+                if (array[j] > temp) {
+                    array[j + 1] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+    }
+
 
     /**
      * 希尔排序升序排列
+     *
      * @param array
      */
     public static void shellSort(int[] array) {
@@ -90,6 +111,7 @@ public class Sort {
         }
 
     }
+
     private static void print(int[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
